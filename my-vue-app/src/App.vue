@@ -1,4 +1,5 @@
 <template>
+  <TwoWayDataBinding />
   <TheHeader
     v-if="showHeader"
   />
@@ -32,13 +33,15 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import TheHeader from './components/TheHeader.vue'
 import ConditionalLoop from './components/ConditionalLoop.vue';
+import TwoWayDataBinding from './components/Two-way-data-binding.vue';
 
 export default {
   name: 'App',
   components: {
     // HelloWorld,
     TheHeader,
-    ConditionalLoop
+    ConditionalLoop,
+    TwoWayDataBinding
   },
   data() {
     return {
