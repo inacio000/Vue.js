@@ -1,33 +1,45 @@
 <template>
-  <EventConceptsVue />
-  <TwoWayDataBinding />
+  <hr/>
+  <h1>CONDITIONAL SHOW</h1>
   <TheHeader
     v-if="showHeader"
-  />
-
-  <!-- CONDICIONAL show -->
-  <div
+    />
+    
+    <!-- CONDICIONAL show -->
+    <div
     v-show="showName"
-  >
+    >
     firstName: {{ firstName }}
     <br/>
     LastName: {{ lastName }}
   </div>
-
+  <hr/>
+  
   <!-- CONDICIONAL if -->
-
+  <h1>CONDITIONAL IF</h1>
+  
   <div v-if="accessLevel === 'admin'">Admin User</div>
   <div v-else-if="accessLevel === 'mark'">Marketing User</div>
   <div v-else>Normal User</div>
-  <img 
-    
-    alt="Vue logo" 
-    src="./assets/logo.png"
-  >
+  <hr/>
+  
+  <!-- EVENTS -->
+  <h1>EVENTS</h1>
+  <EventConceptsVue />
+  <hr/>
+  
+  <h1>TWO WAY DATA BINDING</h1>
+  <TwoWayDataBinding />  
+  <hr/>
+
+  <!-- COMPUTED PROPRIETY -->
+  <h1>COMPUTED PROPRIETY</h1>
+  <ComputedPropriety />
 
   <!-- CONDICIONAL LOOP -->
+  <h1>CONDITIONAL LOOP</h1>
   <ConditionalLoop />
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
 </template>
 
 <script>
@@ -35,6 +47,7 @@
 import TheHeader from './components/TheHeader.vue'
 import EventConceptsVue from './components/EventConcepts.vue';
 import ConditionalLoop from './components/ConditionalLoop.vue';
+import ComputedPropriety from './components/ComputedPropriety.vue';
 import TwoWayDataBinding from './components/Two-way-data-binding.vue';
 
 export default {
@@ -45,6 +58,7 @@ export default {
     ConditionalLoop,
     EventConceptsVue,
     TwoWayDataBinding,
+    ComputedPropriety,
   },
   data() {
     return {
