@@ -1,4 +1,5 @@
 <template>
+  <EventConceptsVue />
   <TwoWayDataBinding />
   <TheHeader
     v-if="showHeader"
@@ -32,6 +33,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import TheHeader from './components/TheHeader.vue'
+import EventConceptsVue from './components/EventConcepts.vue';
 import ConditionalLoop from './components/ConditionalLoop.vue';
 import TwoWayDataBinding from './components/Two-way-data-binding.vue';
 
@@ -41,7 +43,8 @@ export default {
     // HelloWorld,
     TheHeader,
     ConditionalLoop,
-    TwoWayDataBinding
+    EventConceptsVue,
+    TwoWayDataBinding,
   },
   data() {
     return {
