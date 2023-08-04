@@ -35,6 +35,15 @@
   <!-- COMPUTED PROPRIETY -->
   <h1>COMPUTED PROPRIETY</h1>
   <ComputedPropriety />
+  <hr>
+
+  <!-- Watch --> 
+  <WatchConcept />
+  <hr>
+
+  <!-- LIFE CYCLE -->
+  <LifeCycle />
+  <hr>
 
   <!-- CONDICIONAL LOOP -->
   <h1>CONDITIONAL LOOP</h1>
@@ -44,7 +53,9 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import TheHeader from './components/TheHeader.vue'
+import TheHeader from './components/TheHeader.vue';
+import LifeCycle from './components/LifeCycle.vue';
+import WatchConcept from './components/WatchConcept.vue';
 import EventConceptsVue from './components/EventConcepts.vue';
 import ConditionalLoop from './components/ConditionalLoop.vue';
 import ComputedPropriety from './components/ComputedPropriety.vue';
@@ -59,7 +70,9 @@ export default {
     EventConceptsVue,
     TwoWayDataBinding,
     ComputedPropriety,
-  },
+    WatchConcept,
+    LifeCycle
+},
   data() {
     return {
       showHeader: true,
