@@ -1,7 +1,10 @@
 <template>
     <div :class="baseClass">
-        {{ test }}
         <slot/>
+
+        <div>
+            <button @click="onClick">X</button>
+        </div>
     </div>
 </template>
 
@@ -11,11 +14,7 @@
             variant: {
                 type: String,
                 default: ''
-            }, 
-            test: {
-                type: String,
-                default: 'test'
-            }
+            },
         },
         computed: {
             baseClass() {
@@ -24,12 +23,23 @@
                     this.variant ? `alert-${this.variant}` : '',
                 ]
             }
+        },
+        
+        methods: {
+            onClick() {
+                this.$emit('close')
+                console.log('Button clicked!')
+            }
         }
     }
 </script>
 
 <style>
     .alert {
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
         padding: 5px;
         background: #ddd;
         color: black;

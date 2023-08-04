@@ -67,10 +67,12 @@
   <BaseCard />
   <hr>
 
-  <!-- PROPS -->
-  <h1>PROPS</h1>
+  <!-- PROPS & EMIT -->
+  <h1>PROPS AND EMIT</h1>
   <BaseAlertProps 
+    v-if="showAlert"
     :variant="variant"
+    @close="onClose()"
   >
     {{ text }}
   </BaseAlertProps>
@@ -110,6 +112,14 @@ export default {
     ComputedPropriety,
     TwoWayDataBinding,
   },
+
+  methods: {
+      onClose() {
+        this.showAlert = false
+        console.log("on close");
+      }
+  },
+
   data() {
     return {
       showHeader: true,
@@ -118,7 +128,8 @@ export default {
       showName: true,
       accessLevel: 'marketing',
       variant: 'success',
-      text: 'Form sent successfully'
+      text: 'Form sent successfully',
+      showAlert: true,
     }
   }
 }

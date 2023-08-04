@@ -49,3 +49,7 @@
 ## Note
 - `Props`: For behavior
 - `Slot`: For Content
+
+## Envio de dados entre componentes
+- `Props`: Do componente Pai para o componente Filho
+- `Emit`: Do componente Filho para o Componente Pai
