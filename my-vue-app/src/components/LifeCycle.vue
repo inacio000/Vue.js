@@ -42,10 +42,10 @@ import TheHeader from './TheHeader.vue'
     // },
 
     beforeUpdate() {
-        console.log('beforeUpdate');
+        // console.log('beforeUpdate');
     },
     updated() {
-        console.log('updated');
+        // console.log('updated');
     },
 
     // beforeUnmount() {

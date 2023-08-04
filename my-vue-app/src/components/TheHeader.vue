@@ -8,19 +8,19 @@
     export default {
         beforeUnmount() {
             // Destruir as libs, eventos, listners
-            console.log('beforeUnmount');
-            console.log('State: ', this.name);
-            console.log('DOM: ', this.$el);
+            // console.log('beforeUnmount');
+            // console.log('State: ', this.name);
+            // console.log('DOM: ', this.$el);
 
-            window.removeEventListener('resize', this.resize)
+            // window.removeEventListener('resize', this.resize)
         },
         mounted() {
-            window.addEventListener('resize', this.resize)
+            // window.addEventListener('resize', this.resize)
         },
         unmounted() {
-            console.log('unmounted');
-            console.log('State: ', this.name);
-            console.log('DOM: ', this.$el);
+            // console.log('unmounted');
+            // console.log('State: ', this.name);
+            // console.log('DOM: ', this.$el);
         },
 
         methods: {
