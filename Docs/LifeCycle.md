@@ -45,3 +45,7 @@
             console.log('unmounted')
         },
 ```
+
+## Note
+- `Props`: For behavior
+- `Slot`: For Content

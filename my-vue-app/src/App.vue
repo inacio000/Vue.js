@@ -67,6 +67,15 @@
   <BaseCard />
   <hr>
 
+  <!-- PROPS -->
+  <h1>PROPS</h1>
+  <BaseAlertProps 
+    :variant="variant"
+  >
+    {{ text }}
+  </BaseAlertProps>
+  <hr>
+
   <!-- CONDICIONAL LOOP -->
   <h1>CONDITIONAL LOOP</h1>
   <ConditionalLoop />
@@ -80,6 +89,7 @@ import TheHeader from './components/TheHeader.vue';
 import LifeCycle from './components/LifeCycle.vue';
 import WatchConcept from './components/WatchConcept.vue';
 import SlotComponent from './components/SlotComponent.vue';
+import BaseAlertProps from './components/BaseAlertProps.vue';
 import EventConceptsVue from './components/EventConcepts.vue';
 import ConditionalLoop from './components/ConditionalLoop.vue';
 import ComputedPropriety from './components/ComputedPropriety.vue';
@@ -89,16 +99,17 @@ export default {
   name: 'App',
   components: {
     // HelloWorld,
+    BaseCard,
     TheHeader,
+    LifeCycle,
+    WatchConcept,
+    SlotComponent,
+    BaseAlertProps,
     ConditionalLoop,
     EventConceptsVue,
-    TwoWayDataBinding,
     ComputedPropriety,
-    WatchConcept,
-    LifeCycle,
-    SlotComponent,
-    BaseCard
-},
+    TwoWayDataBinding,
+  },
   data() {
     return {
       showHeader: true,
@@ -106,6 +117,8 @@ export default {
       lastName: 'Raimundo',
       showName: true,
       accessLevel: 'marketing',
+      variant: 'success',
+      text: 'Form sent successfully'
     }
   }
 }
