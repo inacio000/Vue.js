@@ -42,7 +42,23 @@
   <hr>
 
   <!-- LIFE CYCLE -->
+  <h1>LIFE CYCLE</h1>
   <LifeCycle />
+  <hr>
+
+  <!-- SLOT COMPONENT -->
+  <h1>SLOTS</h1>
+  <SlotComponent>
+    <template v-slot:title>
+      Slot title
+    </template>
+    
+    <template v-slot:description>
+      Description Slot
+    </template>
+
+    Default Slot
+  </SlotComponent>
   <hr>
 
   <!-- CONDICIONAL LOOP -->
@@ -60,6 +76,7 @@ import EventConceptsVue from './components/EventConcepts.vue';
 import ConditionalLoop from './components/ConditionalLoop.vue';
 import ComputedPropriety from './components/ComputedPropriety.vue';
 import TwoWayDataBinding from './components/Two-way-data-binding.vue';
+import SlotComponent from './components/SlotComponent.vue';
 
 export default {
   name: 'App',
@@ -71,7 +88,8 @@ export default {
     TwoWayDataBinding,
     ComputedPropriety,
     WatchConcept,
-    LifeCycle
+    LifeCycle,
+    SlotComponent
 },
   data() {
     return {

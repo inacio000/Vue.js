@@ -1,8 +1,6 @@
 <template>
     <div>
         <TheHeader v-if="showHeader"/>
-        <h1>Hello </h1>
-        <br>
         <input type="text" v-model="name">
         {{ name }} 
         <br>

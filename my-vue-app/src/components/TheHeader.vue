@@ -1,6 +1,6 @@
 <template>
     <header>
-        Header Component
+        <h2>Header Component</h2>
     </header>        
 </template>
 
@@ -24,9 +24,9 @@
         },
 
         methods: {
-            resize($evt) {
-                console.log($evt);
-            }
+            // resize($evt) {
+            //     console.log($evt);
+            // }
         }
     }
 </script>

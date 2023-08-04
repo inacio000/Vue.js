@@ -1,4 +1,5 @@
 <template>
+    <SlotComponent>Loops</SlotComponent>
     <h1 :class="{ 'title': true, 'title-home': isHome}">
         Curso Vue 3
     </h1>
@@ -25,51 +26,54 @@
 </template>
 
 <script>
+import SlotComponent from './SlotComponent.vue';
+
     export default {
-        name: 'ConditionalLoop',
-        data() {
-            return {
-                styleP: {color: 'white', backgroundColor: 'black', 'padding': '5px 0', fontSize: '20px'},
-                isHome: false,
-                classVar: 'title',
-                pClass: 'text',
-                todos: [
-                    {
-                        "userId": 1,
-                        "id": 1,
-                        "title": "delectus aut autem",
-                        "completed": false,
-                        "imgSrc": 'https://placeholder.com/100',
-                    },
-                    {
-                        "userId": 1,
-                        "id": 2,
-                        "title": "quis ut nam facilis et officia qui",
-                        "completed": false,
-                        "imgSrc": 'https://placeholder.com/100',
-                    },
-                    {
-                        "userId": 1,
-                        "id": 3,
-                        "title": "fugiat veniam minus",
-                        "completed": false
-                    },
-                    {
-                        "userId": 1,
-                        "id": 4,
-                        "title": "et porro tempora",
-                        "completed": true
-                    },
-                    {
-                        "userId": 1,
-                        "id": 5,
-                        "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-                        "completed": false
-                    }
-                ]
-            }
-        }
-    }
+    name: 'ConditionalLoop',
+    data() {
+        return {
+            styleP: { color: 'white', backgroundColor: 'black', 'padding': '5px 0', fontSize: '20px' },
+            isHome: false,
+            classVar: 'title',
+            pClass: 'text',
+            todos: [
+                {
+                    "userId": 1,
+                    "id": 1,
+                    "title": "delectus aut autem",
+                    "completed": false,
+                    "imgSrc": 'https://placeholder.com/100',
+                },
+                {
+                    "userId": 1,
+                    "id": 2,
+                    "title": "quis ut nam facilis et officia qui",
+                    "completed": false,
+                    "imgSrc": 'https://placeholder.com/100',
+                },
+                {
+                    "userId": 1,
+                    "id": 3,
+                    "title": "fugiat veniam minus",
+                    "completed": false
+                },
+                {
+                    "userId": 1,
+                    "id": 4,
+                    "title": "et porro tempora",
+                    "completed": true
+                },
+                {
+                    "userId": 1,
+                    "id": 5,
+                    "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+                    "completed": false
+                }
+            ]
+        };
+    },
+    components: { SlotComponent }
+}
 </script>
 
 <style>
