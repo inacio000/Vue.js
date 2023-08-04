@@ -61,6 +61,12 @@
   </SlotComponent>
   <hr>
 
+  <!-- SCOPED & GLOBAL CSS -->
+  <h1>SCOPED and GLOBAL CSS</h1>
+  <div class="card">Testing CSS</div>
+  <BaseCard />
+  <hr>
+
   <!-- CONDICIONAL LOOP -->
   <h1>CONDITIONAL LOOP</h1>
   <ConditionalLoop />
@@ -69,14 +75,15 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import BaseCard from './components/BaseCard.vue';
 import TheHeader from './components/TheHeader.vue';
 import LifeCycle from './components/LifeCycle.vue';
 import WatchConcept from './components/WatchConcept.vue';
+import SlotComponent from './components/SlotComponent.vue';
 import EventConceptsVue from './components/EventConcepts.vue';
 import ConditionalLoop from './components/ConditionalLoop.vue';
 import ComputedPropriety from './components/ComputedPropriety.vue';
 import TwoWayDataBinding from './components/Two-way-data-binding.vue';
-import SlotComponent from './components/SlotComponent.vue';
 
 export default {
   name: 'App',
@@ -89,7 +96,8 @@ export default {
     ComputedPropriety,
     WatchConcept,
     LifeCycle,
-    SlotComponent
+    SlotComponent,
+    BaseCard
 },
   data() {
     return {
