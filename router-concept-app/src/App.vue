@@ -1,19 +1,19 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <!-- <HelloWorld msg="You did it!" /> -->
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/services">Services</RouterLink>
+        <RouterLink to="/users/10">Users</RouterLink>
       </nav>
     </div>
   </header>
@@ -33,10 +33,10 @@ header {
 }
 
 nav {
-  width: 100%;
   font-size: 12px;
   text-align: center;
-  margin-top: 2rem;
+
+  display: flex;
 }
 
 nav a.router-link-exact-active {
@@ -69,18 +69,19 @@ nav a:first-of-type {
   }
 
   header .wrapper {
+    width: 100%;
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+
+    justify-content: center;
   }
 
   nav {
-    text-align: left;
+    width: 100%;
+    text-align: center;
     margin-left: -1rem;
     font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 </style>
