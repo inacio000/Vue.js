@@ -77,6 +77,16 @@
     {{ text }}
   </BaseAlertProps>
   <hr>
+  
+  <!-- VUEX -->
+  <h1>VUEX</h1>
+  <h3>Using State Layer Concept</h3>
+  <div>
+    <li>{{ $store.state.user.firstName }}</li>
+    <li>{{ $store.state.user.lastName }}</li>
+    <li>{{ $store.state.user.email }}</li>
+  </div>
+  <hr>
 
   <!-- CONDICIONAL LOOP -->
   <h1>CONDITIONAL LOOP</h1>
@@ -130,7 +140,11 @@ export default {
       variant: 'success',
       text: 'Form sent successfully',
       showAlert: true,
+      // $store,
     }
+  },
+  created() {
+    console.log(this.$store.state.user)
   }
 }
 </script>
