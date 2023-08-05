@@ -77,6 +77,20 @@
     {{ text }}
   </BaseAlertProps>
   <hr>
+  
+  <!-- VUEX -->
+  <h1>VUEX</h1>
+  <h3>Using State Layer Concept</h3>
+  <div>
+    <li>{{ $store.state.user.firstName }}</li>
+    <li>{{ $store.state.user.lastName }}</li>
+    <li>{{ $store.state.user.email }}</li>
+  </div>
+
+  <button @click="updateUserData()">
+    Update Profile
+  </button>
+  <hr>
 
   <!-- CONDICIONAL LOOP -->
   <h1>CONDITIONAL LOOP</h1>
@@ -117,6 +131,14 @@ export default {
       onClose() {
         this.showAlert = false
         console.log("on close");
+      },
+      updateUserData() {
+        const newUser = {
+          firstName: 'Luis',
+          lastName: 'Calela',
+          email: 'calela@gmail.com',
+        }
+        this.$store.commit('storeUser', newUser)
       }
   },
 
@@ -130,8 +152,18 @@ export default {
       variant: 'success',
       text: 'Form sent successfully',
       showAlert: true,
+      // $store,
     }
-  }
+  },
+  // created() {
+  //   const newUser = {
+  //     firstName: 'Luis',
+  //     lastName: 'Calela',
+  //     email: 'calela@gmail.com',
+  //   }
+  //   console.log(this.$store.state.user)
+  //   this.$store.commit('storeUser', newUser);
+  // }
 }
 </script>
 
@@ -141,7 +173,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #6cacebb8;
   margin-top: 60px;
 }
 </style>
