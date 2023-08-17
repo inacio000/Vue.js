@@ -86,10 +86,13 @@
     <li>{{ $store.state.user.lastName }}</li>
     <li>{{ $store.state.user.email }}</li>
   </div>
+<<<<<<< HEAD
 
   <button @click="updateUserData()">
     Update Profile
   </button>
+=======
+>>>>>>> c6e24e6bbd6df24b048f7cae81e3956125d32c9c
   <hr>
 
   <!-- CONDICIONAL LOOP -->
@@ -155,6 +158,7 @@ export default {
       // $store,
     }
   },
+<<<<<<< HEAD
   // created() {
   //   const newUser = {
   //     firstName: 'Luis',
@@ -164,6 +168,11 @@ export default {
   //   console.log(this.$store.state.user)
   //   this.$store.commit('storeUser', newUser);
   // }
+=======
+  created() {
+    console.log(this.$store.state.user)
+  }
+>>>>>>> c6e24e6bbd6df24b048f7cae81e3956125d32c9c
 }
 </script>
 
