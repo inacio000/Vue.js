@@ -10,7 +10,6 @@ export default createStore({
     products: [],
     cart: [],
   },
-<<<<<<< HEAD
   mutations: {
     // Composto por uma serie de funções normais
     storeUser(state, data) {
@@ -24,14 +23,4 @@ export default createStore({
   },
   // modules: {
   // }
-=======
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
->>>>>>> c6e24e6bbd6df24b048f7cae81e3956125d32c9c
 })
