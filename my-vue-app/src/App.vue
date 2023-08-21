@@ -99,6 +99,11 @@
 
    <br>
 
+   {{ $store.state.user.firstName }}
+   {{ $store.state.user.lastName }}
+   
+   <br> 
+
   <button @click="updateUserData()">
     Update Profile
   </button>
@@ -152,7 +157,10 @@ export default {
           lastName: 'Calela',
           email: 'calela@gmail.com',
         }
-        this.$store.commit('storeUser', newUser)
+        // this.$store.commit('storeUser', newUser)
+        this.$store.dispatch('storeUser', newUser).then(() => {
+          console.log('Finished successfully')
+        })
       }
   },
 

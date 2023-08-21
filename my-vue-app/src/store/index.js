@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
 
 export default createStore({
-  state: {
+  state: { // Para leituras
     user: {
       firstName: 'Inacio',
       lastName: 'Raimundo',
@@ -27,7 +27,7 @@ export default createStore({
     cart: [],
   },
   mutations: {
-    // Composto por uma serie de funções normais
+    // Composto por uma serie de funções normais, desparadas usando commits
     storeUser(state, data) {
       state.user = data;
       console.log('store user', data)
@@ -48,7 +48,18 @@ export default createStore({
       return state.cart.reduce((total, item) => total += item.price, 0);
     }
   },
-  actions: {
+  actions: { // return a promise
+    storeUser({ commit }, data) {
+      console.log(commit, data);
+      
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          commit('storeUser', data);
+          resolve()
+          console.log('here')
+        }, 3000)
+      })
+    }
   },
   // modules: {
   // }
