@@ -87,6 +87,18 @@
     <li>{{ $store.state.user.email }}</li>
   </div>
 
+  <AppProducts />
+
+   <br>
+
+   <pre>
+    {{ $store.state.cart.length }}
+   </pre>
+
+   {{  $store.getters.total }}
+
+   <br>
+
   <button @click="updateUserData()">
     Update Profile
   </button>
@@ -108,6 +120,7 @@ import SlotComponent from './components/SlotComponent.vue';
 import BaseAlertProps from './components/BaseAlertProps.vue';
 import EventConceptsVue from './components/EventConcepts.vue';
 import ConditionalLoop from './components/ConditionalLoop.vue';
+import AppProducts from './components/Products/AppProducts.vue';
 import ComputedPropriety from './components/ComputedPropriety.vue';
 import TwoWayDataBinding from './components/Two-way-data-binding.vue';
 
@@ -118,6 +131,7 @@ export default {
     BaseCard,
     TheHeader,
     LifeCycle,
+    AppProducts,
     WatchConcept,
     SlotComponent,
     BaseAlertProps,
