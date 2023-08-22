@@ -109,6 +109,8 @@
   </button>
   <hr>
 
+  <CompositionAPI />
+
   <!-- CONDICIONAL LOOP -->
   <h1>CONDITIONAL LOOP</h1>
   <ConditionalLoop />
@@ -128,6 +130,7 @@ import ConditionalLoop from './components/ConditionalLoop.vue';
 import AppProducts from './components/Products/AppProducts.vue';
 import ComputedPropriety from './components/ComputedPropriety.vue';
 import TwoWayDataBinding from './components/Two-way-data-binding.vue';
+import CompositionAPI from './components/Products/CompositionAPI.vue';
 
 export default {
   name: 'App',
@@ -140,11 +143,12 @@ export default {
     WatchConcept,
     SlotComponent,
     BaseAlertProps,
+    CompositionAPI,
     ConditionalLoop,
     EventConceptsVue,
     ComputedPropriety,
     TwoWayDataBinding,
-  },
+},
 
   methods: {
       onClose() {
