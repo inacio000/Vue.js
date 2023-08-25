@@ -103,6 +103,21 @@
    {{ $store.state.user.lastName }}
    
    <br> 
+   <h3>COMPOSITION API Life Cycle</h3>
+   <AppHook v-if="showAppHook"/>
+   <button @click="showAppHook = !showAppHook">Toggle</button>
+
+   <br>
+
+   <AppButton
+    data-vue="Inacio"
+    @update="getUpdate"
+   >
+    Save
+    <template #icon>Icon</template>
+   </AppButton>
+
+   <br>
 
   <button @click="updateUserData()">
     Update Profile
@@ -118,9 +133,11 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+import AppHook from './components/AppHook.vue';
 import BaseCard from './components/BaseCard.vue';
 import TheHeader from './components/TheHeader.vue';
+import AppButton from './components/AppButton.vue';
 import LifeCycle from './components/LifeCycle.vue';
 import WatchConcept from './components/WatchConcept.vue';
 import SlotComponent from './components/SlotComponent.vue';
@@ -136,8 +153,10 @@ export default {
   name: 'App',
   components: {
     // HelloWorld,
+    AppHook,
     BaseCard,
     TheHeader,
+    AppButton,
     LifeCycle,
     AppProducts,
     WatchConcept,
@@ -149,6 +168,19 @@ export default {
     ComputedPropriety,
     TwoWayDataBinding,
 },
+
+  setup() {
+    const showAppHook = ref(true)
+
+    const getUpdate = (data) => {
+      console.log('getUpdate', data)
+    }
+
+    return {
+      getUpdate,
+      showAppHook
+    }
+  },
 
   methods: {
       onClose() {
@@ -166,6 +198,7 @@ export default {
           console.log('Finished successfully')
         })
       }
+      
   },
 
   data() {
