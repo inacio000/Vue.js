@@ -5,7 +5,9 @@ const app = Vue.createApp({
         return {
             title: 'Data Example',
             author: 'IMR',
-            age: 25
+            age: 25,
+            showTitle: true,
+            showSubMenu: false,
         }
     },
     methods: {
@@ -17,6 +19,13 @@ const app = Vue.createApp({
         },
         decreaseAge() {
             this.age -= 1
+        },
+        toggleShowTitle() {
+            this.showTitle = !this.showTitle
+        },
+        toggleButton() {
+            this.showSubMenu = !this.showSubMenu
+            // console.log('toggleButton')
         }
     },
 })

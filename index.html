@@ -1,35 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3.0.2"></script>
 </head>
-<body style="background: gray;">
-    <h1>Hello.</h1>
 
+<body class="bg-gray-600 text-white">
+    
     <div id="app">
-        <!-- Data and Methods -->
-        <div class="into-the-template">
-            <h1>Into the template</h1>
-            <p>{{ title }} - {{ author }} - {{ age }}</p>
-            <button @click="age++">Increase age</button>
-            <button @click="age--">Decrease age</button>
-            <button @click="title = 'Something else'">Change Title</button>
-        </div>
-        <br>
-        <hr>
+        <header class="py-10 bg-blue-400 max-[430px]:flex-col justify-center">
+            <nav class="flex justify-between items-center mx-10">
+                <h2>IMR</h2>
+                <ul class="flex gap-8 max-[430px]:hidden">
+                    <li class="hover:text-blue-400"><a href="/">Home</a></li>
+                    <li class="hover:text-blue-400"><a href="/">Pages</a></li>
+                    <li class="hover:text-blue-400"><a href="/">About Us</a></li>
+                    <li class="hover:text-blue-400"><a href="/">Contact</a></li>
+                </ul>
+                <div @click="toggleButton" class="hidden max-[430px]:block duration-100 cursor-pointer">
+                    <span v-if="!showSubMenu">
+                        <img class="w-5" src="/icons/hamburger.png" alt=""/>
+                    </span>
+                    <span v-else>
+                        <img class="w-5" src="/icons/close.png" alt=""/>
+                    </span>
+                </div>
+            </nav>
+            <div>
+                <ul v-if="showSubMenu" class="w-full text-center flex-col gap-8 hidden max-[430px]:block mt-10">
+                    <li class="hover:text-blue-400"><a href="/">Home</a></li>
+                    <li class="hover:text-blue-400"><a href="/">Pages</a></li>
+                    <li class="hover:text-blue-400"><a href="/">About Us</a></li>
+                    <li class="hover:text-blue-400"><a href="/">Contact</a></li>
+                </ul>
+            </div>
+        </header>
 
-        <div class="out-of-the-template">
-            <h1>Into the template</h1>
-            <p>{{ title }} - {{ author }} - {{ age }}</p>
-            <button @click="increaseAge">Increase age</button>
-            <button @click="decreaseAge">Decrease age</button>
-            <button @click="changeTitle">Change Title</button>
-        </div>
+
+        <!-- Data and Methods -->
+        <main class="mx-10 mt-5">
+            <div class="into-the-template">
+                <h1>Into the template</h1>
+                <p v-if="showTitle">{{ title }} - {{ author }} - {{ age }}</p>
+                <button @click="age++">Increase age</button>
+                <button @click="age--">Decrease age</button>
+                <button @click="title = 'Something else'">Change Title</button>
+                <button @click="toggleShowTitle">
+                    <span v-if="showTitle">Hide Title</span>
+                    <span v-else>Show Title</span>
+                    <!-- <span v-if="!showTitle">Show Title</span> -->
+                </button>
+                <div v-show="showTitle">currently showing the Title</div>
+            </div>
+            <br>
+            <hr>
+            <div>
+                <h1>Into the template</h1>
+                <p>{{ title }} - {{ author }} - {{ age }}</p>
+                <button @click="increaseAge">Increase age</button>
+                <button @click="decreaseAge">Decrease age</button>
+                <button @click="changeTitle">Change Title</button>
+            </div>
+        </main>
     </div>
 
     <script src="app.js"></script>
 </body>
+
 </html>
