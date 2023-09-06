@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body style="background: gray;">
+    <h1>Hello.</h1>
+
+    <div id="app">
+        <!-- Data and Methods -->
+        <div class="into-the-template">
+            <h1>Into the template</h1>
+            <p>{{ title }} - {{ author }} - {{ age }}</p>
+            <button @click="age++">Increase age</button>
+            <button @click="age--">Decrease age</button>
+            <button @click="title = 'Something else'">Change Title</button>
+        </div>
+        <br>
+        <hr>
+
+        <div class="out-of-the-template">
+            <h1>Into the template</h1>
+            <p>{{ title }} - {{ author }} - {{ age }}</p>
+            <button @click="increaseAge">Increase age</button>
+            <button @click="decreaseAge">Decrease age</button>
+            <button @click="changeTitle">Change Title</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
