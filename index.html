@@ -7,6 +7,34 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        .box {
+            border: 1px solid rgba(255, 0, 0, 0.363);
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: rgba(221, 221, 204, 0.377);
+            margin: 20px;
+            display: inline-block;
+        }
+
+        /* p-5  rounded-lg flex items-center justify-between text-center bg-red-200 */
+
+        .into-the-template li {
+            padding: 5px 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            background: whitesmoke;
+        }
+
+        .into-the-template li.fav {
+            background: rgb(226, 170, 170);
+            color: white;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-600 text-white">
@@ -16,26 +44,26 @@
             <nav class="flex justify-between items-center mx-10">
                 <h2>IMR</h2>
                 <ul class="flex gap-8 max-[430px]:hidden">
-                    <li class="hover:text-blue-400"><a href="/">Home</a></li>
-                    <li class="hover:text-blue-400"><a href="/">Pages</a></li>
-                    <li class="hover:text-blue-400"><a href="/">About Us</a></li>
-                    <li class="hover:text-blue-400"><a href="/">Contact</a></li>
+                    <li class="hover:opacity-5"><a href="/">Home</a></li>
+                    <li class="hover:opacity-5"><a href="/">Pages</a></li>
+                    <li class="hover:opacity-5"><a href="/">About Us</a></li>
+                    <li class="hover:opacity-5"><a href="/">Contact</a></li>
                 </ul>
                 <div @click="toggleButton" class="hidden max-[430px]:block duration-100 cursor-pointer">
                     <span v-if="!showSubMenu">
-                        <img class="w-5" src="/icons/hamburger.png" alt=""/>
+                        <img class="w-5" :src="hamburgerIcon" :alt="hamburgerIcon"/>
                     </span>
                     <span v-else>
-                        <img class="w-5" src="/icons/close.png" alt=""/>
+                        <img class="w-5" :src="closeIcon" :alt="closeIcon"/>
                     </span>
                 </div>
             </nav>
             <div>
                 <ul v-if="showSubMenu" class="w-full text-center flex-col gap-8 hidden max-[430px]:block mt-10">
-                    <li class="hover:text-blue-400"><a href="/">Home</a></li>
-                    <li class="hover:text-blue-400"><a href="/">Pages</a></li>
-                    <li class="hover:text-blue-400"><a href="/">About Us</a></li>
-                    <li class="hover:text-blue-400"><a href="/">Contact</a></li>
+                    <li class="hover:opacity-5"><a href="/">Home</a></li>
+                    <li class="hover:opacity-5"><a href="/">Pages</a></li>
+                    <li class="hover:opacity-5"><a href="/">About Us</a></li>
+                    <li class="hover:opacity-5"><a href="/">Contact</a></li>
                 </ul>
             </div>
         </header>
@@ -44,8 +72,18 @@
         <!-- Data and Methods -->
         <main class="mx-10 mt-5">
             <div class="into-the-template">
-                <h1>Into the template</h1>
-                <p v-if="showTitle">{{ title }} - {{ author }} - {{ age }}</p>
+                <!-- <h1>Into the template</h1> -->
+                <!-- V-FOR -->
+                <div v-if="showTitle">
+                    <ul class="flex flex-col justify-center gap-5 text-black mb-10">
+                        <li @click="toggleCard(book)" v-for="book in filteredBook" :class="{ fav: book.isFav }">
+                            <img :src="book.image" :alt="book.image" class="rounded-lg">
+                            <h2 class="font-bold text-xl">{{ book.title }}</h2>
+                            <p>{{ book.author }}</p>
+                        </li>
+                    </ul>
+                </div>
+                <p>{{ filteredBook }}</p>
                 <button @click="age++">Increase age</button>
                 <button @click="age--">Decrease age</button>
                 <button @click="title = 'Something else'">Change Title</button>
@@ -65,6 +103,12 @@
                 <button @click="decreaseAge">Decrease age</button>
                 <button @click="changeTitle">Change Title</button>
             </div>
+            <br>
+            <h1>MOUSE EVENTS</h1>
+            <div @mouseover="handleEvents($event, 5)" class="box">mouseover (enter)</div>
+            <div @mouseleave="handleEvents" class="box">mouseleave</div>
+            <div @dblclick="handleEvents" class="box">double click</div>
+            <div @mousemove="handleMouseMove" class="box">position - {{ x }} {{ y }}</div>
         </main>
     </div>
 
