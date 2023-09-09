@@ -3,7 +3,11 @@
     <h1 class="w-96 m-auto text-3xl font-bold text-slate-700 border-b-2">{{ title }}</h1>
     <!-- <input type="text" ref="name" class="w-96 mx-auto">
     <button @click="handleClick" class="bg-purple-400 w-96 mx-auto">Click</button> -->
-    <MyModal header="Sign up for the Giveaway"/>
+    <MyModal 
+      :header="header"
+      :text="text"
+      theme="sale"
+    />
   </div>
 </template>
 
@@ -14,7 +18,11 @@ export default {
   name: 'App',
   components: { MyModal },
   data() {
-    return {title: 'Vue App'}
+    return {
+      title: 'Vue App',
+      header: 'Sign up for the Giveaway',
+      text: 'Grad your ninja swag for half price!'
+    }
   },
   // methods: {
   //   handleClick() {
