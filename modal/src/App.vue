@@ -20,7 +20,7 @@
     </div>
     
     
-    <div v-if="showSecondModal">
+    <teleport to=".modals" v-if="showSecondModal">
       <MySecondModal @close2="toggleSecondModal">
         <h2 class="text-3xl text-titlecolor font-bold">Welcome To Second Modal</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex asperiores numquam quas aspernatur.</p>
@@ -31,7 +31,7 @@
           </div>
         </template>
       </MySecondModal>
-    </div>
+    </teleport>
     
     <button 
       @click="toggleModal"
