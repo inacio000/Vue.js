@@ -1,5 +1,5 @@
 <template>
-    <div class="w-80 bg-blockBg text-white text-center py-20 rounded-lg border my-20 mx-auto" v-if="showBlock">Click me!</div>
+    <div class="w-80 bg-blockBg text-white text-center py-20 rounded-lg border my-20 mx-auto" v-if="showBlock" @click="stopTimer">Click me!</div>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
         }
     },
     mounted() {
-        console.log('component mounted')
+        // console.log('component mounted')
         setTimeout(() => {
             this.showBlock = true;
             this.startTimer()
@@ -34,6 +34,7 @@ export default {
         },
         stopTimer() {
             clearInterval(this.timer)
+            console.log(this.reactionTime)
         }
     }
 }
