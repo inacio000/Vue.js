@@ -1,8 +1,8 @@
 <template>
   <h1 class="text-3xl font-bold">In Reaction Timer</h1>
   <button type="button" @click="start" 
-    :disable="isPlaying"
-    class="w-20 bg-white p-2 mt-4 rounded disabled:bg-transparent"
+    v-bind:disabled="isPlaying"
+    class="w-20 bg-white p-2 mt-4 rounded"
   >Play</button>
   <BlockButton v-if="isPlaying" :delay="delay" @end="endGame"/>
   <ResultButton v-if="showResult" :score="score"/>
