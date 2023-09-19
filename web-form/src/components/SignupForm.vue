@@ -1,12 +1,13 @@
 <template>
-  <form class="max-w-md my-6 mx-auto bg-white text-start p-6 rounded-lg">
+  <form @submit.prevent="handleSubmite" class="max-w-md my-6 mx-auto bg-white text-start p-6 rounded-lg">
     <label class="text-labelColor inline-block mt-2 text-sm uppercase font-bold">Email:</label>
     <input type="email" required v-model="email"
       class="w-full block px-2 py-3 box-border border-b-2 border-inputBorder text-inputColor mb-6">
 
     <label class="text-labelColor inline-block text-sm uppercase font-bold">Password:</label>
     <input type="password" required v-model="password"
-      class="w-full block px-2 py-3 box-border border-b-2 border-inputBorder text-inputColor mb-6">
+      class="w-full block px-2 py-3 box-border border-b-2 border-inputBorder text-inputColor mb-3">
+    <div v-if="passwordError" class="text-red-400 font-bold">{{ passwordError }}</div>
 
     <label class="text-labelColor inline-block mx-0 mt-5 mb-2 text-sm uppercase font-bold">Role: </label>
     
@@ -28,17 +29,23 @@
         conditions</label>
     </div>
 
-    <div>
-      <input type="checkbox" value="inacio" v-model="names" class="inline-block w-8 mr-4 relative">
-      <label class="text-labelColor inline-block mx-0 mt-5 mb-4 text-sm uppercase font-bold">Inácio</label>
-    </div>
-    <div>
-      <input type="checkbox" value="martinho" v-model="names" class="inline-block w-8 mr-4 relative">
-      <label class="text-labelColor inline-block mx-0 mt-5 mb-4 text-sm uppercase font-bold">Martinho</label>
-    </div>
-    <div>
-      <input type="checkbox" value="raimundo" v-model="names" class="inline-block w-8 mr-4 relative">
-      <label class="text-labelColor inline-block mx-0 mt-5 mb-4 text-sm uppercase font-bold">Raimundo</label>
+    <!-- <div>
+      <div>
+        <input type="checkbox" value="inacio" v-model="names" class="inline-block w-8 mr-4 relative">
+        <label class="text-labelColor inline-block mx-0 mt-5 mb-4 text-sm uppercase font-bold">Inácio</label>
+      </div>
+      <div>
+        <input type="checkbox" value="martinho" v-model="names" class="inline-block w-8 mr-4 relative">
+        <label class="text-labelColor inline-block mx-0 mt-5 mb-4 text-sm uppercase font-bold">Martinho</label>
+      </div>
+      <div>
+        <input type="checkbox" value="raimundo" v-model="names" class="inline-block w-8 mr-4 relative">
+        <label class="text-labelColor inline-block mx-0 mt-5 mb-4 text-sm uppercase font-bold">Raimundo</label>
+      </div>
+    </div> -->
+    
+    <div class="text-center">
+      <button v-bind:disabled="!terms" class="bg-blue-600 py-2 px-4 mt-2 text-white rounded-3xl">Create an Account</button>
     </div>
 
   </form>
@@ -60,7 +67,8 @@ export default {
       terms: false,
       names: [],
       tempskill: '',
-      skills: []
+      skills: [],
+      passwordError: '',
     }
   },
   methods: {
@@ -73,11 +81,23 @@ export default {
       }
       // console.log(e)
     },
-
     deleteSkill(skill) {
       this.skills = this.skills.filter((item) => {
         return skill !== item
       })
+    },
+    handleSubmite() {
+      console.log('form submitted')
+      // validate password
+      this.passwordError = this.password.length > 5 ? '' : 'Password must be at least 6 char long'
+
+      if(!this.passwordError) {
+        console.log('email: ', this.email)
+        console.log('password: ', this.password)
+        console.log('role: ', this.role)
+        console.log('skills: ', this.skills)
+        console.log('terms accepted: ', this.terms)
+      }
     }
   }
 }
